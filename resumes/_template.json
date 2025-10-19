@@ -1,0 +1,50 @@
+{
+  "name": "Your Full Name",
+  "title": "Your Professional Title",
+  "email": "your.email@example.com",
+  "phone": "+1 234 567 8900",
+  "location": "City, State/Country",
+  "linkedin": "https://www.linkedin.com/in/yourprofile",
+  "website": "",
+  "summary": "",
+  "skills": {
+    "Programming Languages": ["JavaScript (ES6+)", "TypeScript"],
+    "Frontend": ["React", "Next.js (including React Server Components, App Router, SSR/SSG)", "Micro-frontends", "Webpack Module Federation", "Single-SPA", "Tailwind CSS", "SCSS", "Styled Components", "CSS Modules", "Redux Toolkit", "Zustand", "Recoil", "Apollo Client", "Material UI", "Radix UI", "Storybook", "WebAssembly integrations", "PWAs", "container queries", "AI-assisted UX"],
+    "Backend": ["Node.js (12–20)", "Express.js", "Fastify", "NestJS", "REST APIs", "GraphQL (Apollo Server, Yoga, Mercurius)", "gRPC (grpc-node)", "Kafka", "NATS", "RabbitMQ", "JWT", "OAuth2", "OpenID Connect", "Auth0", "Passport.js"],
+    "Databases": ["PostgreSQL", "MySQL", "MongoDB", "Redis", "DynamoDB", "Elasticsearch"],
+    "Testing": ["Jest", "Mocha/Chai", "Supertest", "Pact (contract testing)", "React Testing Library", "Cypress", "Playwright", "RSpec", "Postman", "unit/integration/e2e tests", "TDD", "BDD"],
+    "Cloud Platforms": ["AWS (EKS, Lambda, ECS, S3, RDS, CloudWatch, API Gateway)", "Azure (AKS, Cosmos DB, Functions)", "GCP (Cloud Run, Pub/Sub, Firestore)", "Vercel"],
+    "DevOps & Infrastructure": ["Docker", "Kubernetes", "Terraform", "Pulumi", "GitHub Actions", "GitLab CI/CD", "Azure DevOps", "Jenkins", "ArgoCD", "GitOps pipelines", "feature flags (LaunchDarkly, Unleash)", "canary/blue-green deployments"],
+    "Development Tools": ["ESLint", "Prettier", "Husky", "Lerna", "NX monorepos", "Storybook"],
+    "Observability & Monitoring": ["OpenTelemetry", "Winston", "Pino", "Prometheus", "Grafana"],
+    "Workflow Automation": ["n8n", "Zapier integration"],
+    "Leadership & Collaboration": ["Agile/Scrum", "Jira", "Confluence", "Code Reviews", "Mentorship", "Sprint Planning", "Roadmap Shaping"]
+  },
+  "experience": [
+    {
+      "title": "Job Title",
+      "company": "Company Name",
+      "location": "City, State",
+      "start_date": "Jan 2020",
+      "end_date": "Present",
+      "details": []
+    },
+    {
+      "title": "Previous Job Title",
+      "company": "Previous Company",
+      "location": "City, State",
+      "start_date": "Jan 2018",
+      "end_date": "Dec 2019",
+      "details": []
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Science in Computer Science",
+      "school": "University Name",
+      "start_year": "2014",
+      "end_year": "2018"
+    }
+  ]
+}
+
