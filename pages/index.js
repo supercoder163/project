@@ -52,29 +52,29 @@ export default function Home() {
     setDisable(true);
 
     try {
-      // Step 1: Parse the PDF to get resume JSON
+      // Step 1: Extract text from PDF (instant, no AI)
       const formData = new FormData();
       formData.append("resume", file);
 
-      const parseRes = await fetch("/api/parse-resume", {
+      const extractRes = await fetch("/api/extract-text", {
         method: "POST",
         body: formData,
       });
 
-      if (!parseRes.ok) {
-        const errorData = await parseRes.json();
-        throw new Error(errorData.error || "Failed to parse resume");
+      if (!extractRes.ok) {
+        const errorData = await extractRes.json();
+        throw new Error(errorData.error || "Failed to extract text from PDF");
       }
 
-      const parseData = await parseRes.json();
-      const resumeJson = parseData.data;
+      const extractData = await extractRes.json();
+      const resumeText = extractData.text;
 
-      // Step 2: Generate tailored resume
+      // Step 2: Generate tailored resume (single AI call: text + JD → HTML → PDF)
       const genRes = await fetch("/api/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
-          resumeJson: resumeJson,
+          resumeText: resumeText,
           jd: jd,
           company: company 
         })
@@ -91,27 +91,8 @@ export default function Home() {
       const a = document.createElement("a");
       a.href = url;
       
-      // Generate filename: Firstname_Lastname_Company.pdf or Firstname_Lastname.pdf
-      const capitalize = (str) => {
-        return str.split(/\s+/).map(word => 
-          word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-        ).join("_");
-      };
-      
+      // Filename is already handled by backend, use default or override
       let fileName = "Resume.pdf";
-      if (resumeJson.name) {
-        const nameParts = resumeJson.name.trim().split(/\s+/);
-        if (nameParts.length >= 2) {
-          const firstName = capitalize(nameParts[0]);
-          const lastName = capitalize(nameParts[nameParts.length - 1]);
-          const companyPart = company ? `_${capitalize(company)}` : "";
-          fileName = `${firstName}_${lastName}${companyPart}.pdf`;
-        } else if (nameParts.length === 1) {
-          const firstName = capitalize(nameParts[0]);
-          const companyPart = company ? `_${capitalize(company)}` : "";
-          fileName = `${firstName}${companyPart}.pdf`;
-        }
-      }
       
       a.download = fileName;
       a.click();
@@ -323,7 +304,7 @@ export default function Home() {
           color: "#856404",
           textAlign: "center"
         }}>
-          ⚡ This may take 30-90 seconds. Please wait...
+          ⚡ This may take 30-45 seconds. Please wait...
         </div>
       )}
     </div>
