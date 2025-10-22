@@ -205,7 +205,8 @@ Generate a complete, valid HTML document following this exact structure:
     <p class="summary">
       [Write 5-6 lines that immediately hook recruiters. Focus on:
        - Top skills aligned with JD
-       - Years of experience and domain expertise
+       - Years of experience must be same as uploaded resume
+       - Domain expertise
        - Leadership and technical achievements
        - Key technologies from JD
        - Business impact and measurable outcomes]
